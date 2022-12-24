@@ -22,7 +22,7 @@ io.on('connection', (socket) => {
 const directory = 'python/tmp';
 
 // Set the image file name
-const fileName = 'cloudnuage.jpg';
+const fileName = 'wordcloud.png';
 
 // Set the image file path
 const filePath = path.join(directory, fileName);
@@ -37,7 +37,7 @@ app.get('/image', (req, res) => {
     }
 
     // Set the content type and send the image data as a response
-    res.setHeader('Content-Type', 'image/jpeg');
+    res.setHeader('Content-Type', 'image/jng');
     res.send(data);
   });
 });
@@ -48,6 +48,14 @@ const consumer = new kafka.Consumer(
   [{ topic: 'rawTwitter', partition: 0, offset: 0 }],
   { fromOffset: false }
 );
+
+consumer.commit((error, data) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log(data);
+  }
+});
 
 consumer.on('message', (message) => {
   // io.emit('message', message.value);
@@ -63,6 +71,7 @@ fs.watch(directory, (eventType, filename) => {
     io.emit('message', 'go');
   }
 });
+
 
 server.listen(process.env.PORT || 3000, () => {
   console.log('app running');

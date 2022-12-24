@@ -7,7 +7,8 @@ from kafka import KafkaConsumer
 from nltk.corpus import stopwords
 from wordcloud import WordCloud
 import base64
-import requests
+import matplotlib.pyplot as plt
+import os 
 
 twitter_mask = np.array(Image.open('/Users/zakariatozy/Library/Mobile Documents/com~apple~CloudDocs/IPP/IPP ZAK/DATAStrem/projet/twitter_mask.png'))
 nltk.download('stopwords')
@@ -25,7 +26,7 @@ while True:
     all_tokens = []
     
     # Consume 100 messages from the Kafka topic
-    for _, msg in zip(range(10), consumer):
+    for _, msg in zip(range(100), consumer):
         res = json.loads(msg.value.decode('utf-8')) 
         tweets.append(res['text'])
 
@@ -49,12 +50,12 @@ while True:
     N = 100
     top_words = [word for word, count in word_counts.most_common(N)]
 
-    # Create the word cloud
-    #wordcloud = WordCloud(max_font_size=60, min_font_size=20, prefer_horizontal=0.9, width=800, height=400).generate(" ".join(top_words))
-    wordcloud = WordCloud(max_words=150,colormap='RdYlGn',contour_color='black',mask=twitter_mask,background_color='white',collocations=True).generate(" ".join(top_words))
-      
-    # Save the image to a new file
-    image = wordcloud.to_image()
-    image.save('python/tmp/cloudnuage.jpg')
-    print("save")
-
+    wordcloud = WordCloud(max_words=150,colormap='tab10',mask=twitter_mask,background_color='white',collocations=True).generate(" ".join(top_words))
+    
+    plt.figure(figsize=(10,20), facecolor='k')
+    plt.imshow(wordcloud)
+    plt.axis("off")
+    plt.tight_layout(pad=0)
+    plt.savefig("/Users/zakariatozy/Library/Mobile Documents/com~apple~CloudDocs/IPP/IPP ZAK/DATAStrem/projet/python/tmp/wordcloud", facecolor='k', bbox_inches='tight')
+    
+   
