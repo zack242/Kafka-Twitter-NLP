@@ -15,7 +15,6 @@ class MyStream(tweepy.StreamingClient):
         print(f"{tweet.author_id} : {tweet.public_metrics} : <<{tweet.text}>>")
         print("-"*50)
         producer.send('rawTwitter',json.dumps(dict(tweet), default=str).encode('utf-8'))
-        time.sleep(1) 
         return
     
     def reset_rules(self) : 
@@ -25,7 +24,7 @@ class MyStream(tweepy.StreamingClient):
 
 stream = MyStream(bearer_token=bear_token,wait_on_rate_limit=True,daemon=True)
 stream.reset_rules()
-rules = ["messi lang:fr  -is:retweet","mbappe lang:fr  -is:retweet"]
+rules = ["messi lang:en  -is:retweet","mbappe lang:en  -is:retweet"]
 for rule in rules : 
     stream.add_rules(tweepy.StreamRule(value=rule))
     

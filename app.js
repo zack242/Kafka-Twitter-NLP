@@ -4,7 +4,7 @@ var express     = require('express');
 var app         = require('express')();
 var server      = require('http').createServer(app);
 var io          = require('socket.io')(server);
-
+const multer = require('multer');
 
 app.set('view engine', 'ejs');
 app.get('/', function(req, res) {
@@ -18,15 +18,26 @@ io.on('connection', function(socket) {
       });
 });
 
+// Set up multer to handle the file upload
+const upload = multer({ dest: 'uploads/' });
+
+// Set up the route to handle the file upload
+app.post('/upload', upload.single('image'), (req, res) => {
+  // The file is saved to the `uploads` directory
+  console.log(req.file);
+  res.sendStatus(200);
+});
+
 
 Consumer = kafka.Consumer,
 client = new kafka.KafkaClient("localhost:9092"),
 consumer = new Consumer(client,[{ topic: 'rawTwitter', partition: 0, offset: 0 }],{ fromOffset: false });
 
 consumer.on('message', function (message){
-        console.log("send")
-        io.emit('message', message.value);});
-        
+       // io.emit('message', message.value);
+    });
+
+             
 consumer.on('error', function (err) {
         console.log('ERROR: ' + err.toString());});
 
