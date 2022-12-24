@@ -24,7 +24,7 @@ class MyStream(tweepy.StreamingClient):
 
 stream = MyStream(bearer_token=bear_token,wait_on_rate_limit=True,daemon=True)
 stream.reset_rules()
-rules = ["messi lang:en  -is:retweet","mbappe lang:en  -is:retweet"]
+rules = ["tajeddine -is:retweet","ounahi -is:retweet"]
 for rule in rules : 
     stream.add_rules(tweepy.StreamRule(value=rule))
     

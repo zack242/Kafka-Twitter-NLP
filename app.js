@@ -5,6 +5,7 @@ const io = require('socket.io')(server);
 const kafka = require('kafka-node');
 const fs = require('fs');
 const path = require('path');
+var NBR_TWEETS = 0;
 
 app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
@@ -35,30 +36,27 @@ app.get('/image', (req, res) => {
       res.sendStatus(500);
       return;
     }
-
     // Set the content type and send the image data as a response
     res.setHeader('Content-Type', 'image/jng');
     res.send(data);
   });
 });
 
+app.get('/NBRTWEETS', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send({ nbrTweets: NBR_TWEETS });
+});
+
 const client = new kafka.KafkaClient('localhost:9092');
 const consumer = new kafka.Consumer(
   client,
   [{ topic: 'rawTwitter', partition: 0, offset: 0 }],
-  { fromOffset: false }
+  { fromOffset: false, autoCommit: true }
 );
 
-consumer.commit((error, data) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log(data);
-  }
-});
-
 consumer.on('message', (message) => {
-  // io.emit('message', message.value);
+  io.emit('message', message.value);
+  NBR_TWEETS++;
 });
 
 consumer.on('error', (err) => {
@@ -71,7 +69,6 @@ fs.watch(directory, (eventType, filename) => {
     io.emit('message', 'go');
   }
 });
-
 
 server.listen(process.env.PORT || 3000, () => {
   console.log('app running');

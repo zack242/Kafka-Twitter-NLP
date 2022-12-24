@@ -6,10 +6,14 @@
   </head>
   <body>
     <h1>This is Test Page</h1>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-      <img id="image" src="/image" alt="cloud image">
+    <p>Number of tweets: <span id="tweet-count"></span></p>
+    <img id="image" src="/image" alt="cloud image">
+
+    <form onsubmit="return submitForm()">
+      <!-- form fields go here -->
+     <button type="submit">Submit</button>
     </form>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
@@ -27,9 +31,21 @@
               });
           }
           // Call the loadImage function
-          loadImage();
+          loadImage(); 
         });
+      
+        setInterval(function() {
+          fetch('/nbrTweets')
+            .then(response => response.json())
+            .then(data => {
+              document.querySelector('#tweet-count').textContent = data.nbrTweets;
+            });
+        }, 1000);
+
+
+        
       });
+
     </script>
   </body>
 </html>

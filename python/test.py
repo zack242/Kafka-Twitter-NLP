@@ -1,13 +1,18 @@
-import json 
-import requests
-from kafka import KafkaConsumer
+from flask import Flask, request, jsonify
 
-url = "http://localhost:3000"
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+app = Flask(__name__)
 
-consumer = KafkaConsumer()
-consumer.subscribe(['rawTwitter'])
+@app.route('/nbrTweets', methods=['GET'])
+def get_nbr_tweets():
+  nbr_tweets = 10
+  return jsonify({'nbrTweets': nbr_tweets})
 
-for msg in consumer:
-    res = json.loads(msg.value.decode('utf-8')) 
-    requests.post(url, data=msg.value, headers=headers)
+@app.route('/form', methods=['POST'])
+def submit_form():
+  print("jjj")
+  data = request.form
+  message = "Form submitted successfully"
+  return jsonify({'message': message})
+
+if __name__ == '__main__':
+  app.run(debug=True, host='localhost',port=5055)
