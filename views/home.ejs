@@ -6,17 +6,30 @@
   </head>
   <body>
     <h1>This is Test Page</h1>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+      <img id="image" src="./public/cloudnuage.jpg" alt="cloud image">
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      $(function () {
+        var socket = io();
+        socket.on('message', function(msg) {
+          function loadImage() {
+            fetch('/image')
+              .then((response) => response.arrayBuffer())
+              .then((buffer) => {
+                var imageData = new Uint8Array(buffer);
+                document.getElementById('image').src = URL.createObjectURL(
+                  new Blob([imageData], { type: 'image/jpeg' })
+                );
+              });
+          }
+          // Call the loadImage function
+          loadImage();
+        });
+      });
+    </script>
   </body>
-  <script src="/socket.io/socket.io.js"></script>
-  <form action="">
-    <input id="m" autocomplete="off" /><button>Send</button>
-  </form>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-  <script>
-    $(function () {
-      var socket = io();
-      console.log('hhhhh')
-      socket.on('message', function(msg){console.log('message: ' + msg)});});
-  </script>
 </html>
