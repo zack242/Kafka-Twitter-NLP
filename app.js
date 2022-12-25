@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
 const directory = 'python/tmp';
 
 // Set the image file name
-const fileName = 'wordcloud.png';
+const fileName = 'wordcloud.svg';
 
 // Set the image file path
 const filePath = path.join(directory, fileName);
@@ -43,7 +43,7 @@ app.get('/image', (req, res) => {
       return;
     }
     // Set the content type and send the image data as a response
-    res.setHeader('Content-Type', 'image/jng');
+    res.setHeader('Content-Type', 'image/svg+xml');
     res.send(data);
   });
 });
@@ -75,6 +75,37 @@ fs.watch(directory, (eventType, filename) => {
   }
 });
 
+
+app.get('/keyword', function(req, res) {
+  const data = req.query.key;
+  updaterule(data)
+  res.json({ message: 'Data received' });
+});
+
+const { exec } = require('child_process');
+updaterule("COVID")
+exec(`python3 python/treadingword.py`, (error, stdout, stderr) => {
+  if (error) {
+    console.error(`exec error: ${error}`);
+    return;
+  }
+  console.log(`stdout: ${stdout}`);
+  console.error(`stderr: ${stderr}`);
+});
+
+function updaterule(argument){
+  exec(`python3 python/twitter-api.py ${argument}`, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+    console.error(`stderr: ${stderr}`);
+  });
+}
+
 server.listen(process.env.PORT || 3000, () => {
   console.log('app running');
 });
+
+

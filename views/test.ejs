@@ -9,13 +9,21 @@
       }
 
       #fil-tweets {
-        height: 600px;
-        max-height: 600px;
+        height: 800px;
+        max-height: 800px;
         display: inline-block;
         overflow: auto;
         margin: auto; /* centers the element horizontally */
       }
-      
+
+      h1
+      {
+        color : white
+      }
+
+      svg {
+        transform: scale(0.80);
+      }
 
       #tweet{
         background-color: #f1f1f1;
@@ -43,7 +51,7 @@
       h1 {
         text-align: center;
       }
-
+      
       /* Add some custom styles */
       .card h2 {
         color: #333;
@@ -76,17 +84,18 @@
       <div class="card">
         <h2>Keyword to stream</h2>
         <br>
-        <p class="stats"><input type="text"></p>
+        <p class="stats">
+          <input  id="keyword" type="text">
+          <button id="send">SEND</button>
         <p class="description">Current keyword : "COVID</p>
       </div>
       <div class="card">
         <h2>Number of Tweets</h2>
-        <p class="stats" id="tweet-count">00000</p>
+        <p class="stats" id="tweet-count"></p>
       </div>
-      <div class="card">
+      <div  class="card">
         <h2>Dynamic CloudWord</h2>
-        <br>
-        <center><img id="image" src="/Users/zakariatozy/Library/Mobile Documents/com~apple~CloudDocs/IPP/IPP ZAK/DATAStrem/projet/python/tmp/cloudnuage.jpg" alt="" height="600px" width="600px"class="img-fluid"></center>
+        <div id="pic"></div>
       </div>
       <div class="card">
         <h2>Stream of tweets </h2>
@@ -101,6 +110,7 @@
 
       var arr_tweets = [];
       var socket = io();
+      loadImage()
 
       setInterval(function() {
         fetch('/nbrTweets')
@@ -111,14 +121,12 @@
       }, 1000);
 
       function loadImage() {
-        fetch('/image')
-          .then((response) => response.arrayBuffer())
-          .then((buffer) => {
-            var imageData = new Uint8Array(buffer);
-            document.getElementById('image').src = URL.createObjectURL(
-              new Blob([imageData], { type: 'image/jpeg' })
-            );
-          });
+        fetch("/image")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('pic').innerHTML = data;})
+      .catch(error => {
+      console.error(error);});
       }
 
       function showtweets(tweets) 
@@ -132,7 +140,18 @@
             $("#fil-tweets").prepend("<div id='tweet'>" + tweet + "</div>");
         });
       }
-        
+
+      $('#send').click(function() {
+        key = $('#keyword').val()
+        fetch(`/keyword?key=${key}`, {
+          method: 'GET'
+        })
+        .then(res => res.json())
+        .then(response => console.log('Success:', response))
+        .catch(error => console.error('Error:', error));
+      });
+      
+
       socket.on('message', function(msg) {
         if (msg=="go")
              loadImage()

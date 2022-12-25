@@ -50,12 +50,8 @@ while True:
     N = 100
     top_words = [word for word, count in word_counts.most_common(N)]
 
-    wordcloud = WordCloud(max_words=150,colormap='tab10',mask=twitter_mask,background_color='white',collocations=True).generate(" ".join(top_words))
-    
-    plt.figure(figsize=(10,20), facecolor='k')
-    plt.imshow(wordcloud)
-    plt.axis("off")
-    plt.tight_layout(pad=0)
-    plt.savefig("/Users/zakariatozy/Library/Mobile Documents/com~apple~CloudDocs/IPP/IPP ZAK/DATAStrem/projet/python/tmp/wordcloud", facecolor='k', bbox_inches='tight')
-    
-   
+    wordcloud = WordCloud(max_words=150,width=700, height=700,colormap='tab10',mask=twitter_mask,background_color='white',collocations=True).generate(" ".join(top_words))
+    wordcloud_svg = wordcloud.to_svg(embed_font=True,)
+    f = open("./python/tmp/wordcloud.svg","w+")
+    f.write(wordcloud_svg)
+    f.close()
