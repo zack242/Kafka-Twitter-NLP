@@ -16,3 +16,8 @@ npm run nodemon
 ```
 python3 twitter-api.py
 ```
+
+### Run the script tradingword
+```
+python3 twitter-api.py
+```

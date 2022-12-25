@@ -71,7 +71,6 @@ consumer.on('error', (err) => {
 
 fs.watch(directory, (eventType, filename) => {
   if (eventType === 'change') {
-    console.log('Event emit on tmp');
     io.emit('message', 'go');
   }
 });

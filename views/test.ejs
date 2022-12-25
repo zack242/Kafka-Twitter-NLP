@@ -5,7 +5,25 @@
       /* Add some styling for the dashboard */
       body {
         font-family: Arial, sans-serif;
-        background-image: linear-gradient(to bottom,#1DA1F2, #9198e5);
+        background-color : #202124
+      }
+
+      #fil-tweets {
+        height: 600px;
+        max-height: 600px;
+        display: inline-block;
+        overflow: auto;
+        margin: auto; /* centers the element horizontally */
+      }
+      
+
+      #tweet{
+        background-color: #f1f1f1;
+        width: 90%;
+        max-width: 90%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        margin: 10px;
       }
 
       .container {
@@ -20,6 +38,7 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         padding: 20px;
       }
+
 
       h1 {
         text-align: center;
@@ -71,11 +90,7 @@
       </div>
       <div class="card">
         <h2>Stream of tweets </h2>
-        <div class="card">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum, neque! Voluptatem animi voluptatum natus quam. Tempore sequi possimus porro iste, qui excepturi quod ex mollitia esse asperiores blanditiis molestiae enim.</div>
-        <div class="card">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum, neque! Voluptatem animi voluptatum natus quam. Tempore sequi possimus porro iste, qui excepturi quod ex mollitia esse asperiores blanditiis molestiae enim.</div>
-        <div class="card">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum, neque! Voluptatem animi voluptatum natus quam. Tempore sequi possimus porro iste, qui excepturi quod ex mollitia esse asperiores blanditiis molestiae enim.</div>
-        <div class="card">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum, neque! Voluptatem animi voluptatum natus quam. Tempore sequi possimus porro iste, qui excepturi quod ex mollitia esse asperiores blanditiis molestiae enim.</div>
-        <div class="card">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum, neque! Voluptatem animi voluptatum natus quam. Tempore sequi possimus porro iste, qui excepturi quod ex mollitia esse asperiores blanditiis molestiae enim.</div>
+        <div id="fil-tweets"></div>
       </div>
     </div>
   </body>
@@ -83,7 +98,18 @@
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
   <script>
     $(function () {
+
+      var arr_tweets = [];
       var socket = io();
+
+      setInterval(function() {
+        fetch('/nbrTweets')
+          .then(response => response.json())
+          .then(data => {
+            document.querySelector('#tweet-count').textContent = data.nbrTweets;
+          });
+      }, 1000);
+
       function loadImage() {
         fetch('/image')
           .then((response) => response.arrayBuffer())
@@ -94,22 +120,27 @@
             );
           });
       }
+
+      function showtweets(tweets) 
+      {
+        arr_tweets.push(tweets)
+        if(arr_tweets.length > 20)
+            arr_tweets.shift()
+        
+        $('#fil-tweets').empty();
+        arr_tweets.forEach(tweet => {
+            $("#fil-tweets").prepend("<div id='tweet'>" + tweet + "</div>");
+        });
+      }
+        
       socket.on('message', function(msg) {
         if (msg=="go")
              loadImage()
         else {
             const obj = JSON.parse(msg);
-            console.log(obj.text)
+            showtweets(obj.text) 
         }
       });
-    
-      setInterval(function() {
-        fetch('/nbrTweets')
-          .then(response => response.json())
-          .then(data => {
-            document.querySelector('#tweet-count').textContent = data.nbrTweets;
-          });
-      }, 1000);
 
     });
 
