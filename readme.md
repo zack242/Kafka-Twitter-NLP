@@ -6,18 +6,16 @@ bin/zookeeper-server-start.sh config/zookeeper.properties
 ```
 bin/kafka-server-start.sh config/server.properties
 ```
+
+### Setup python scripts 
+```
+cd project/python
+pip install -r requirements.txt
+```
+
 ### Lanche Nodejs 
 ```
 cd project 
-npm run nodemon
-```
-
-### Run the script python 
-```
-python3 twitter-api.py
-```
-
-### Run the script tradingword
-```
-python3 twitter-api.py
+npm install
+npm start
 ```

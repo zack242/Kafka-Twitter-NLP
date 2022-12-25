@@ -1,0 +1,73 @@
+/* Add some styling for the dashboard */
+body {
+  font-family: Arial, sans-serif;
+  background-color : #202124
+}
+
+#fil-tweets {
+  height: 800px;
+  max-height: 800px;
+  display: inline-block;
+  overflow: auto;
+  margin: auto; /* centers the element horizontally */
+}
+
+h1
+{
+  color : white
+}
+
+svg {
+  transform: scale(0.80);
+}
+
+#tweet{
+  background-color: #f1f1f1;
+  width: 90%;
+  max-width: 90%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin: 10px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+
+h1 {
+  text-align: center;
+}
+
+/* Add some custom styles */
+.card h2 {
+  color: #333;
+  font-size: 18px;
+  margin: 0;
+}
+
+.card p {
+  color: #666;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.card p.stats {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.card p.description {
+  font-style: italic;
+  margin: 10px 0;
+}

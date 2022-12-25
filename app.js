@@ -6,24 +6,9 @@ const io = require('socket.io')(server);
 const kafka = require('kafka-node');
 const fs = require('fs');
 const path = require('path');
+const { exec } = require('child_process');
+
 var NBR_TWEETS = 0;
-
-app.set('view engine', 'ejs');
-app.use(express.static(__dirname+'/public'))
-app.get('/', (req, res) => {
-  res.render('home');
-});
-
-app.get('/v1', (req, res) => {
-  res.render('test');
-});
-
-io.on('connection', (socket) => {
-  console.log('a user connected');
-  socket.on('chat message', (msg) => {
-    console.log(`message: ${msg}`);
-  });
-});
 
 // Set the directory path
 const directory = 'python/tmp';
@@ -33,6 +18,14 @@ const fileName = 'wordcloud.svg';
 
 // Set the image file path
 const filePath = path.join(directory, fileName);
+
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname+'/public'))
+
+app.get('/', (req, res) => {
+  res.render('home');
+});
+
 
 app.get('/image', (req, res) => {
   // Read the image file
@@ -51,6 +44,19 @@ app.get('/image', (req, res) => {
 app.get('/NBRTWEETS', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send({ nbrTweets: NBR_TWEETS });
+});
+
+app.get('/keyword', function(req, res) {
+  const data = req.query.key;
+  updaterule(data)
+  res.json({ message: 'Data received' });
+});
+
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('chat message', (msg) => {
+    console.log(`message: ${msg}`);
+  });
 });
 
 const client = new kafka.KafkaClient('localhost:9092');
@@ -75,14 +81,6 @@ fs.watch(directory, (eventType, filename) => {
   }
 });
 
-
-app.get('/keyword', function(req, res) {
-  const data = req.query.key;
-  updaterule(data)
-  res.json({ message: 'Data received' });
-});
-
-const { exec } = require('child_process');
 updaterule("COVID")
 exec(`python3 python/treadingword.py`, (error, stdout, stderr) => {
   if (error) {
@@ -107,5 +105,3 @@ function updaterule(argument){
 server.listen(process.env.PORT || 3000, () => {
   console.log('app running');
 });
-
-
