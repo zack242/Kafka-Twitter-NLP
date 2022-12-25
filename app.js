@@ -1,4 +1,5 @@
 const ejs = require('ejs');
+const express = require('express')
 const app = require('express')();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
@@ -8,8 +9,13 @@ const path = require('path');
 var NBR_TWEETS = 0;
 
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname+'/public'))
 app.get('/', (req, res) => {
   res.render('home');
+});
+
+app.get('/v1', (req, res) => {
+  res.render('test');
 });
 
 io.on('connection', (socket) => {

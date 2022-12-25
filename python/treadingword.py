@@ -10,7 +10,7 @@ import base64
 import matplotlib.pyplot as plt
 import os 
 
-twitter_mask = np.array(Image.open('/Users/zakariatozy/Library/Mobile Documents/com~apple~CloudDocs/IPP/IPP ZAK/DATAStrem/projet/twitter_mask.png'))
+twitter_mask = np.array(Image.open('/Users/zakariatozy/Library/Mobile Documents/com~apple~CloudDocs/IPP/IPP ZAK/DATAStrem/projet/python/tmp/twitter_mask.png'))
 nltk.download('stopwords')
 
 # Set up the Kafka consumer
