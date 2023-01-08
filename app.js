@@ -7,6 +7,7 @@ const kafka = require('kafka-node');
 const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
+var actualclass = "rawTwitter"
 
 var NBR_TWEETS = 0;
 
@@ -26,6 +27,9 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
+app.get('/test', (req, res) => {
+  res.render('index');
+});
 
 app.get('/image', (req, res) => {
   // Read the image file
@@ -52,6 +56,7 @@ app.get('/keyword', function(req, res) {
   res.json({ message: 'Data received' });
 });
 
+
 io.on('connection', (socket) => {
   console.log('a user connected');
   socket.on('chat message', (msg) => {
@@ -66,6 +71,12 @@ const consumer = new kafka.Consumer(
   { fromOffset: false, autoCommit: true }
 );
 
+const client2 = new kafka.KafkaClient('localhost:9092');
+const consumer_class = new kafka.Consumer(client2,
+  [{ topic: 'class1', partition: 0, offset: 0 }],
+  { fromOffset: false, autoCommit: true }
+);
+
 consumer.on('message', (message) => {
   io.emit('message', message.value);
   NBR_TWEETS++;
@@ -73,6 +84,19 @@ consumer.on('message', (message) => {
 
 consumer.on('error', (err) => {
   console.log(`ERROR: ${err.toString()}`);
+});
+
+consumer_class.on('message', (message) => {
+  io.emit('message1', message.value);
+});
+
+app.get('/class', function(req, res) {
+  const data = req.query.key;
+  consumer_class.removeTopics([actualclass], function (err, removed) {});
+  actualclass = "class"+data
+  consumer_class.addTopics([actualclass], function (err, added) {});
+  console.log(data)
+  res.json({ message: 'Data received' });
 });
 
 fs.watch(directory, (eventType, filename) => {
@@ -92,7 +116,7 @@ exec(`python3 python/treadingword.py`, (error, stdout, stderr) => {
 });
 
 function updaterule(argument){
-  exec(`python3 python/twitter-api.py ${argument}`, (error, stdout, stderr) => {
+  exec(`python3 python/testclass.py ${argument}`, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
       return;
