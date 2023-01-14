@@ -55,31 +55,9 @@
           </div>
           <div class="home-container6">
             <div id="group" class="home-container7">
-              <button value="1" class="home-button button">
+              <button value="-1" class="home-button3 button">
                 <span>
-                  <span>Classe 1</span>
-                  <br />
-                  <br />
-                </span>
-              </button>
-              <button value="2" class="home-button1 button">
-                <span>
-                  <span>Classe 2</span>
-                  <br />
-                  <br />
-                  <br />
-                </span>
-              </button>
-              <button value="3" class="home-button2 button">
-                <span>
-                  <span>Classe 3</span>
-                  <br />
-                  <br />
-                </span>
-              </button>
-              <button value="4" class="home-button3 button">
-                <span>
-                  <span>Classe 4</span>
+                  <span>Reset</span>
                   <br />
                   <br />
                 </span>
@@ -89,8 +67,6 @@
             </div>
             <div class="home-container8">
               <ul id="fil-tweets-class"class="home-ul1 list">
-                <li class="list-item tweet"><span>Text</span></li>
-                <li class="list-item tweet"><span>Text</span></li>
               </ul>
             </div>
           </div>
@@ -108,6 +84,7 @@
        var arr_tweets_class = [];
        var socket = io();
        loadImage()
+       addclass()
      
        setInterval(function() {
          fetch('/nbrTweets')
@@ -149,6 +126,15 @@
              $("#fil-tweets-class").prepend('<li class="list-item tweet"><span>'+tweet+'</span></li>');
          });
        }
+
+       function addclass()
+       {
+          for(i = 0; i < 5 ; i++){
+          t = "<button value='"+i+"' class='home-button2 button'><span><span>Class "+i+"</span><br /><br /></span></button>"
+          $("#group").prepend(t);
+        }
+
+       }
      
        $('#keyword').on("keyup",function(e) {
         if (e.keyCode == 13) {
@@ -174,17 +160,22 @@
 
        socket.on('message1', function(msg) {
         const obj = JSON.parse(msg);
-        showtweetsonclass(obj.text)
+        showtweetsonclass(obj)
       });
 
        $('#group').on('click', 'button', function(event) {
         var name = this.value
+        if(name == -1){
+             $('#fil-tweets-class').empty();
+             arr_tweets_class = [];
+        }
+        else{ 
         fetch(`/class?key=${name}`, {
           method: 'GET'
         })
         .then(res => res.json())
         .then(response => console.log('Success:', response))
-        .catch(error => console.error('Error:', error))
+        .catch(error => console.error('Error:', error)) }
       });
      
      });
