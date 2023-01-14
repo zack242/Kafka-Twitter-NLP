@@ -1,4 +1,4 @@
-# Real-time Twitter Stream Visualization
+# Real-time Twitter Stream Visualization and classification
 
 This project is a real-time Twitter stream visualization that uses the following technologies:
 - Node.js
@@ -24,7 +24,7 @@ You need to have the following installed on your machine:
 ### Installing
 
 1. Clone the repository to your local machine
-git clone https://github.com/username/repository.git
+git clone https://github.com/zack242/Kafka-Twitter-NLP.git
 
 2. Install the necessary Node.js packages
 
