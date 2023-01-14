@@ -21,7 +21,7 @@ const fileName = 'wordcloud.svg';
 const filePath = path.join(directory, fileName);
 
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname+'/public'))
+app.use(express.static(__dirname + '/public'))
 
 app.get('/', (req, res) => {
   res.render('home');
@@ -50,7 +50,7 @@ app.get('/NBRTWEETS', (req, res) => {
   res.send({ nbrTweets: NBR_TWEETS });
 });
 
-app.get('/keyword', function(req, res) {
+app.get('/keyword', function (req, res) {
   const data = req.query.key;
   updaterule(data)
   res.json({ message: 'Data received' });
@@ -90,11 +90,11 @@ consumer_class.on('message', (message) => {
   io.emit('message1', message.value);
 });
 
-app.get('/class', function(req, res) {
+app.get('/class', function (req, res) {
   const data = req.query.key;
-  consumer_class.removeTopics([actualclass], function (err, removed) {});
-  actualclass = "class"+data
-  consumer_class.addTopics([actualclass], function (err, added) {});
+  consumer_class.removeTopics([actualclass], function (err, removed) { });
+  actualclass = "class" + data
+  consumer_class.addTopics([actualclass], function (err, added) { });
   console.log(data)
   res.json({ message: 'Data received' });
 });
@@ -115,8 +115,8 @@ exec(`python3 python/treadingword.py`, (error, stdout, stderr) => {
   console.error(`stderr: ${stderr}`);
 });
 
-function updaterule(argument){
-  exec(`python3 python/testclass.py ${argument}`, (error, stdout, stderr) => {
+function updaterule(argument) {
+  exec(`python3 python/twitter-api.py ${argument}`, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
       return;
@@ -125,6 +125,15 @@ function updaterule(argument){
     console.error(`stderr: ${stderr}`);
   });
 }
+
+exec(`python3 python/model.py`, (error, stdout, stderr) => {
+  if (error) {
+    console.error(`exec error: ${error}`);
+    return;
+  }
+  console.log(`stdout: ${stdout}`);
+  console.error(`stderr: ${stderr}`);
+});
 
 server.listen(process.env.PORT || 3000, () => {
   console.log('app running');
