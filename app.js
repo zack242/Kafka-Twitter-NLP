@@ -95,7 +95,6 @@ app.get('/class', function (req, res) {
   consumer_class.removeTopics([actualclass], function (err, removed) { });
   actualclass = "class" + data
   consumer_class.addTopics([actualclass], function (err, added) { });
-  console.log(data)
   res.json({ message: 'Data received' });
 });
 
@@ -126,7 +125,7 @@ function updaterule(argument) {
   });
 }
 
-exec(`python3 python/model.py`, (error, stdout, stderr) => {
+exec(`python3 python/model_enligne.py`, (error, stdout, stderr) => {
   if (error) {
     console.error(`exec error: ${error}`);
     return;
