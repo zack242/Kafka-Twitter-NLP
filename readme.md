@@ -40,10 +40,6 @@ git clone https://github.com/zack242/Kafka-Twitter-NLP.git
 
 1. Connect to the server by visiting [http://localhost:3000](http://localhost:3000) in your browser.
 
-2. You can change the class of tweets to be shown by sending a GET request to /class route with the class number as key in the query string.
-
-3. You can change the wordcloud by sending a GET request to /keyword route with the keyword as key in the query string.
-
 ## Built With
 
 * [Node.js](https://nodejs.org/) - JavaScript runtime
