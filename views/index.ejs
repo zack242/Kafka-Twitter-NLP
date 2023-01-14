@@ -107,7 +107,7 @@
        function showtweets(tweets) 
        {
          arr_tweets.push(tweets)
-         if(arr_tweets.length > 20)
+         if(arr_tweets.length > 50)
              arr_tweets.shift()
          
          $('#fil-tweets').empty();
@@ -119,7 +119,7 @@
        function showtweetsonclass(tweets) 
        {
         arr_tweets_class.push(tweets)
-         if(arr_tweets_class.length > 20)
+         if(arr_tweets_class.length > 50)
          arr_tweets_class.shift()
          
          $('#fil-tweets-class').empty();
