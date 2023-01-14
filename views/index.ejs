@@ -64,6 +64,7 @@
               </button>
               <span class="home-text19">Live counter</span>
               <span id="tweet-count" class="home-text20">00000</span>
+              <span id="select-class" class="home-text20"></span>
             </div>
             <div class="home-container8">
               <ul id="fil-tweets-class"class="home-ul1 list">
@@ -118,7 +119,7 @@
        function showtweetsonclass(tweets) 
        {
         arr_tweets_class.push(tweets)
-         if(arr_tweets_class.length > 15)
+         if(arr_tweets_class.length > 20)
          arr_tweets_class.shift()
          
          $('#fil-tweets-class').empty();
@@ -165,6 +166,7 @@
 
        $('#group').on('click', 'button', function(event) {
         var name = this.value
+        $('#select-class').text("Class "+name)
         if(name == -1){
              $('#fil-tweets-class').empty();
              arr_tweets_class = [];
