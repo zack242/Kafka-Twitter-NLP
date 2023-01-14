@@ -29,7 +29,7 @@ while True:
     all_tokens = []
 
     # Consume 100 messages from the Kafka topic
-    for _, msg in zip(range(50), consumer):
+    for _, msg in zip(range(500), consumer):
         res = json.loads(msg.value.decode("utf-8"))
         tweets.append(res["text"])
 
