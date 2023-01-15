@@ -21,13 +21,10 @@ class MyStream(tweepy.StreamingClient):
         sub_topics = ["politics", "manga", "health", "music", "school"]
         tweet_clean = tweet_preprocessing(tweet["text"])
         tokenized_tweet = nltk.word_tokenize(tweet_clean)
-        for rule in sub_topics:
-            for word in tokenized_tweet:
-                if word in rule:
-                    producer.send(
-                        "rawTwitter",
-                        json.dumps(dict(tweet), default=str).encode("utf-8"),
-                    )
+        if any(word in " ".join(tokenized_tweet) for word in sub_topics):
+            producer.send(
+                "rawTwitter", json.dumps(dict(tweet), default=str).encode("utf-8")
+            )
         time.sleep(0.25)
         return
 
