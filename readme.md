@@ -1,5 +1,7 @@
 # Real-time Twitter Stream Visualization and classification
-
+<center>
+<img src="./python/tmp/logo.png">
+</center>
 This project is a real-time Twitter stream visualization that uses the following technologies:
 - Node.js
 - Express
@@ -7,7 +9,7 @@ This project is a real-time Twitter stream visualization that uses the following
 - Socket.IO
 - kafka-node
 - Python
-
+<img src="./python/tmp/webpage.png">
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -28,7 +30,7 @@ git clone https://github.com/zack242/Kafka-Twitter-NLP.git
 
 2. Install the necessary Node.js packages
 
-3. Install the necessary Python packages
+3. Install the necessary Python packages (pip install -r requirements.txt)
 
 4. Make sure Kafka is running on your local machine
 
@@ -57,7 +59,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 ## Authors
 
 * **Zakaria Tozy* - *ZT* - [Your Github](https://github.com/zack242)
-* **Karine Zafy* - *ZY* - [Your Github](https://github.com/zack242)
+* **Karine Zafy* - *ZY* - [Your Github](https://github.com/pailleaunez)
 * **Marius* - *ZY* - [Your Github](https://github.com/zack242)
 
 ## License
