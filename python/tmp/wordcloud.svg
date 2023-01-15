@@ -1,85 +1,155 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="808">
-<style>@font-face{font-family:'Droid Sans Mono';font-weight:normal;font-style:normal;src:url("data:application/font-woff;charset=utf-8;base64,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")format("woff");}</style>
+<style>@font-face{font-family:'Droid Sans Mono';font-weight:normal;font-style:normal;src:url("data:application/font-woff;charset=utf-8;base64,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")format("woff");}</style>
 <style>text{font-family:'Droid Sans Mono';font-weight:normal;font-style:normal;}</style>
 <rect width="100%" height="100%" style="fill:white"></rect>
-<text transform="translate(207,555)" font-size="173" style="fill:rgb(188, 189, 34)">covid</text>
-<text transform="translate(129,385)" font-size="173" style="fill:rgb(148, 103, 189)">vaccine</text>
-<text transform="translate(499,229)" font-size="131" style="fill:rgb(23, 190, 207)">death</text>
-<text transform="translate(427,703)" font-size="131" style="fill:rgb(148, 103, 189)">u</text>
-<text transform="translate(326,677)" font-size="98" style="fill:rgb(227, 119, 194)">s</text>
-<text transform="translate(169,760)" font-size="76" style="fill:rgb(31, 119, 180)">people</text>
-<text transform="translate(497,629)" font-size="76" style="fill:rgb(255, 127, 14)">n't</text>
-<text transform="translate(124,429)" font-size="55" style="fill:rgb(44, 160, 44)">healthbyjames</text>
-<text transform="translate(104,237)" font-size="55" style="fill:rgb(255, 127, 14)">still</text>
-<text transform="translate(602,76)" font-size="55" style="fill:rgb(255, 127, 14)">amp</text>
-<text transform="translate(737,448)" font-size="55" style="fill:rgb(31, 119, 180)">got</text>
-<text transform="translate(246,605)" font-size="55" style="fill:rgb(23, 190, 207)">im</text>
-<text transform="translate(516,674)" font-size="55" style="fill:rgb(148, 103, 189)">know</text>
-<text transform="translate(706,70)" font-size="55" style="fill:rgb(214, 39, 40)">yes</text>
-<text transform="translate(106,272)" font-size="42" style="fill:rgb(255, 127, 14)">lovillajavea</text>
-<text transform="translate(719,116)" font-size="42" style="fill:rgb(148, 103, 189)">ive</text>
-<text transform="translate(56,180)" font-size="42" style="fill:rgb(140, 86, 75)">even</text>
-<text transform="translate(613,278)" font-size="42" style="fill:rgb(23, 190, 207)">best</text>
-<text transform="translate(531,118)" font-size="42" style="fill:rgb(140, 86, 75)">time</text>
-<text transform="translate(606,501) rotate(-90)" font-size="42" style="fill:rgb(44, 160, 44)">year</text>
-<text transform="translate(744,272)" font-size="42" style="fill:rgb(255, 127, 14)">fauci</text>
-<text transform="translate(634,608)" font-size="42" style="fill:rgb(255, 127, 14)">flu</text>
-<text transform="translate(56,347)" font-size="42" style="fill:rgb(214, 39, 40)">gut</text>
-<text transform="translate(448,746)" font-size="42" style="fill:rgb(188, 189, 34)">sick</text>
-<text transform="translate(335,611)" font-size="42" style="fill:rgb(23, 190, 207)">uk</text>
-<text transform="translate(490,273)" font-size="42" style="fill:rgb(255, 127, 14)">ill</text>
-<text transform="translate(428,715) rotate(-90)" font-size="42" style="fill:rgb(227, 119, 194)">become</text>
-<text transform="translate(631,148)" font-size="42" style="fill:rgb(31, 119, 180)">check</text>
-<text transform="translate(721,484)" font-size="42" style="fill:rgb(44, 160, 44)">many</text>
-<text transform="translate(746,610) rotate(-90)" font-size="42" style="fill:rgb(188, 189, 34)">whole</text>
-<text transform="translate(230,708)" font-size="40" style="fill:rgb(23, 190, 207)">think</text>
-<text transform="translate(622,405)" font-size="26" style="fill:rgb(140, 86, 75)">claytravis</text>
-<text transform="translate(135,533)" font-size="26" style="fill:rgb(148, 103, 189)">said</text>
-<text transform="translate(330,781)" font-size="26" style="fill:rgb(31, 119, 180)">getting</text>
-<text transform="translate(130,450)" font-size="26" style="fill:rgb(44, 160, 44)">mattwallace888</text>
-<text transform="translate(499,694)" font-size="19" style="fill:rgb(44, 160, 44)">scottadamssays</text>
-<text transform="translate(871,140)" font-size="19" style="fill:rgb(31, 119, 180)">anti</text>
-<text transform="translate(864,387) rotate(-90)" font-size="19" style="fill:rgb(255, 127, 14)">included</text>
-<text transform="translate(90,111)" font-size="19" style="fill:rgb(140, 86, 75)">may</text>
-<text transform="translate(371,347)" font-size="19" style="fill:rgb(214, 39, 40)">cant</text>
-<text transform="translate(789,90)" font-size="19" style="fill:rgb(23, 190, 207)">lot</text>
-<text transform="translate(48,147)" font-size="19" style="fill:rgb(127, 127, 127)">public</text>
-<text transform="translate(527,357)" font-size="19" style="fill:rgb(31, 119, 180)">risk</text>
-<text transform="translate(614,451)" font-size="19" style="fill:rgb(255, 127, 14)">back</text>
-<text transform="translate(215,594)" font-size="19" style="fill:rgb(23, 190, 207)">m</text>
-<text transform="translate(645,26)" font-size="19" style="fill:rgb(44, 160, 44)">eating</text>
-<text transform="translate(102,735)" font-size="19" style="fill:rgb(44, 160, 44)">actual</text>
-<text transform="translate(483,576)" font-size="19" style="fill:rgb(140, 86, 75)">reason</text>
-<text transform="translate(450,771)" font-size="19" style="fill:rgb(127, 127, 127)">never</text>
-<text transform="translate(879,103) rotate(-90)" font-size="19" style="fill:rgb(214, 39, 40)">good</text>
-<text transform="translate(104,416) rotate(-90)" font-size="19" style="fill:rgb(23, 190, 207)">wonder</text>
-<text transform="translate(548,721)" font-size="19" style="fill:rgb(44, 160, 44)">truth</text>
-<text transform="translate(190,480)" font-size="19" style="fill:rgb(140, 86, 75)">nhs</text>
-<text transform="translate(244,501)" font-size="19" style="fill:rgb(188, 189, 34)">video</text>
-<text transform="translate(217,788)" font-size="19" style="fill:rgb(140, 86, 75)">pushing</text>
-<text transform="translate(329,658) rotate(-90)" font-size="19" style="fill:rgb(44, 160, 44)">america</text>
-<text transform="translate(586,637) rotate(-90)" font-size="19" style="fill:rgb(255, 127, 14)">first</text>
-<text transform="translate(490,451)" font-size="19" style="fill:rgb(255, 127, 14)">seeing</text>
-<text transform="translate(434,451)" font-size="19" style="fill:rgb(44, 160, 44)">house</text>
-<text transform="translate(884,70)" font-size="19" style="fill:rgb(127, 127, 127)">need</text>
-<text transform="translate(668,641) rotate(-90)" font-size="19" style="fill:rgb(44, 160, 44)">see</text>
-<text transform="translate(447,385) rotate(-90)" font-size="19" style="fill:rgb(255, 127, 14)">mamadeebs</text>
-<text transform="translate(51,192)" font-size="15" style="fill:rgb(227, 119, 194)">repjimmygomez</text>
-<text transform="translate(613,41)" font-size="15" style="fill:rgb(31, 119, 180)">chasten</text>
-<text transform="translate(502,522)" font-size="15" style="fill:rgb(44, 160, 44)">kids</text>
-<text transform="translate(657,349) rotate(-90)" font-size="15" style="fill:rgb(255, 127, 14)">thank</text>
-<text transform="translate(569,288)" font-size="15" style="fill:rgb(227, 119, 194)">much</text>
-<text transform="translate(307,798)" font-size="15" style="fill:rgb(188, 189, 34)">prevent</text>
-<text transform="translate(830,284)" font-size="15" style="fill:rgb(140, 86, 75)">want</text>
-<text transform="translate(505,334)" font-size="15" style="fill:rgb(188, 189, 34)">thinking</text>
-<text transform="translate(422,365) rotate(-90)" font-size="15" style="fill:rgb(148, 103, 189)">worse</text>
-<text transform="translate(436,572)" font-size="15" style="fill:rgb(227, 119, 194)">long</text>
-<text transform="translate(560,69)" font-size="15" style="fill:rgb(140, 86, 75)">mask</text>
-<text transform="translate(92,747)" font-size="15" style="fill:rgb(31, 119, 180)">immunity</text>
-<text transform="translate(170,287)" font-size="15" style="fill:rgb(214, 39, 40)">infection</text>
-<text transform="translate(762,126)" font-size="15" style="fill:rgb(214, 39, 40)">source</text>
-<text transform="translate(679,359)" font-size="15" style="fill:rgb(44, 160, 44)">vax</text>
-<text transform="translate(522,149)" font-size="15" style="fill:rgb(148, 103, 189)">car</text>
-<text transform="translate(564,568)" font-size="15" style="fill:rgb(23, 190, 207)">accidents</text>
-<text transform="translate(629,250)" font-size="15" style="fill:rgb(148, 103, 189)">second</text>
+<text transform="translate(175,418)" font-size="217" style="fill:rgb(188, 189, 34)">music</text>
+<text transform="translate(298,531)" font-size="195" style="fill:rgb(127, 127, 127)">amp</text>
+<text transform="translate(496,227)" font-size="110" style="fill:rgb(44, 160, 44)">school</text>
+<text transform="translate(295,626)" font-size="63" style="fill:rgb(127, 127, 127)">high school</text>
+<text transform="translate(688,484)" font-size="58" style="fill:rgb(140, 86, 75)">vs</text>
+<text transform="translate(238,723)" font-size="52" style="fill:rgb(31, 119, 180)">video</text>
+<text transform="translate(564,116)" font-size="52" style="fill:rgb(255, 127, 14)">health</text>
+<text transform="translate(104,223)" font-size="52" style="fill:rgb(255, 127, 14)">one</text>
+<text transform="translate(682,271)" font-size="52" style="fill:rgb(140, 86, 75)">people</text>
+<text transform="translate(253,762)" font-size="46" style="fill:rgb(255, 127, 14)">please</text>
+<text transform="translate(114,751)" font-size="42" style="fill:rgb(214, 39, 40)">state</text>
+<text transform="translate(431,680)" font-size="42" style="fill:rgb(188, 189, 34)">politics</text>
+<text transform="translate(599,60)" font-size="42" style="fill:rgb(44, 160, 44)">time</text>
+<text transform="translate(161,451)" font-size="42" style="fill:rgb(23, 190, 207)">want</text>
+<text transform="translate(286,568) rotate(-90)" font-size="42" style="fill:rgb(255, 127, 14)">good</text>
+<text transform="translate(311,282)" font-size="42" style="fill:rgb(140, 86, 75)">take</text>
+<text transform="translate(180,259)" font-size="42" style="fill:rgb(214, 39, 40)">need</text>
+<text transform="translate(516,717)" font-size="42" style="fill:rgb(23, 190, 207)">ia</text>
+<text transform="translate(667,540)" font-size="42" style="fill:rgb(44, 160, 44)">right</text>
+<text transform="translate(66,360)" font-size="42" style="fill:rgb(214, 39, 40)">let</text>
+<text transform="translate(516,148)" font-size="42" style="fill:rgb(44, 160, 44)">new</text>
+<text transform="translate(519,291)" font-size="38" style="fill:rgb(227, 119, 194)">best</text>
+<text transform="translate(574,367) rotate(-90)" font-size="38" style="fill:rgb(255, 127, 14)">day</text>
+<text transform="translate(776,121)" font-size="38" style="fill:rgb(188, 189, 34)">hear</text>
+<text transform="translate(164,551) rotate(-90)" font-size="38" style="fill:rgb(140, 86, 75)">go</text>
+<text transform="translate(750,357)" font-size="38" style="fill:rgb(127, 127, 127)">media</text>
+<text transform="translate(423,742)" font-size="38" style="fill:rgb(127, 127, 127)">back</text>
+<text transform="translate(97,262)" font-size="38" style="fill:rgb(148, 103, 189)">big</text>
+<text transform="translate(460,278)" font-size="38" style="fill:rgb(255, 127, 14)">u</text>
+<text transform="translate(330,569)" font-size="38" style="fill:rgb(23, 190, 207)">christian</text>
+<text transform="translate(689,153)" font-size="38" style="fill:rgb(127, 127, 127)">lol</text>
+<text transform="translate(650,361)" font-size="38" style="fill:rgb(127, 127, 127)">wa</text>
+<text transform="translate(634,439)" font-size="25" style="fill:rgb(227, 119, 194)">boy basketball</text>
+<text transform="translate(209,791)" font-size="22" style="fill:rgb(140, 86, 75)">basketball today</text>
+<text transform="translate(51,180)" font-size="22" style="fill:rgb(255, 127, 14)">today live</text>
+<text transform="translate(293,658)" font-size="22" style="fill:rgb(227, 119, 194)">live game</text>
+<text transform="translate(134,288)" font-size="22" style="fill:rgb(44, 160, 44)">game broadcast</text>
+<text transform="translate(569,571)" font-size="22" style="fill:rgb(214, 39, 40)">broadcast demand</text>
+<text transform="translate(792,81)" font-size="22" style="fill:rgb(31, 119, 180)">may allah</text>
+<text transform="translate(811,303)" font-size="19" style="fill:rgb(127, 127, 127)">always</text>
+<text transform="translate(426,777)" font-size="19" style="fill:rgb(255, 127, 14)">live</text>
+<text transform="translate(89,142)" font-size="19" style="fill:rgb(188, 189, 34)">found</text>
+<text transform="translate(179,347) rotate(-90)" font-size="19" style="fill:rgb(23, 190, 207)">love</text>
+<text transform="translate(760,375)" font-size="19" style="fill:rgb(31, 119, 180)">im</text>
+<text transform="translate(287,461)" font-size="19" style="fill:rgb(31, 119, 180)">ur</text>
+<text transform="translate(374,672)" font-size="19" style="fill:rgb(214, 39, 40)">every</text>
+<text transform="translate(654,500)" font-size="19" style="fill:rgb(23, 190, 207)">face</text>
+<text transform="translate(107,422)" font-size="19" style="fill:rgb(148, 103, 189)">yes</text>
+<text transform="translate(279,247)" font-size="19" style="fill:rgb(140, 86, 75)">showed</text>
+<text transform="translate(583,645)" font-size="19" style="fill:rgb(188, 189, 34)">voting</text>
+<text transform="translate(706,37)" font-size="19" style="fill:rgb(227, 119, 194)">play</text>
+<text transform="translate(479,642)" font-size="19" style="fill:rgb(148, 103, 189)">life</text>
+<text transform="translate(569,479)" font-size="19" style="fill:rgb(188, 189, 34)">care</text>
+<text transform="translate(425,642)" font-size="19" style="fill:rgb(255, 127, 14)">many</text>
+<text transform="translate(91,392)" font-size="19" style="fill:rgb(255, 127, 14)">thought</text>
+<text transform="translate(87,325)" font-size="19" style="fill:rgb(23, 190, 207)">demand</text>
+<text transform="translate(441,294)" font-size="19" style="fill:rgb(255, 127, 14)">first</text>
+<text transform="translate(765,138)" font-size="19" style="fill:rgb(140, 86, 75)">remember</text>
+<text transform="translate(226,553)" font-size="19" style="fill:rgb(148, 103, 189)">war</text>
+<text transform="translate(832,287)" font-size="19" style="fill:rgb(44, 160, 44)">old</text>
+<text transform="translate(201,222)" font-size="19" style="fill:rgb(148, 103, 189)">fall</text>
+<text transform="translate(46,112)" font-size="19" style="fill:rgb(140, 86, 75)">thing</text>
+<text transform="translate(556,383)" font-size="19" style="fill:rgb(255, 127, 14)">never</text>
+<text transform="translate(700,71)" font-size="19" style="fill:rgb(127, 127, 127)">used</text>
+<text transform="translate(645,309)" font-size="19" style="fill:rgb(148, 103, 189)">hand</text>
+<text transform="translate(777,482)" font-size="19" style="fill:rgb(227, 119, 194)">week</text>
+<text transform="translate(493,243)" font-size="15" style="fill:rgb(31, 119, 180)">wrestling tournaments</text>
+<text transform="translate(445,755)" font-size="15" style="fill:rgb(44, 160, 44)">allah bless</text>
+<text transform="translate(53,151)" font-size="12" style="fill:rgb(44, 160, 44)">man</text>
+<text transform="translate(194,461)" font-size="12" style="fill:rgb(148, 103, 189)">highlights</text>
+<text transform="translate(186,556)" font-size="12" style="fill:rgb(140, 86, 75)">top</text>
+<text transform="translate(356,342) rotate(-90)" font-size="12" style="fill:rgb(31, 119, 180)">catholic</text>
+<text transform="translate(835,410) rotate(-90)" font-size="12" style="fill:rgb(127, 127, 127)">girls</text>
+<text transform="translate(635,130)" font-size="12" style="fill:rgb(140, 86, 75)">watching</text>
+<text transform="translate(530,738)" font-size="12" style="fill:rgb(227, 119, 194)">share</text>
+<text transform="translate(151,761)" font-size="12" style="fill:rgb(188, 189, 34)">follow</text>
+<text transform="translate(393,708)" font-size="12" style="fill:rgb(140, 86, 75)">conservatives</text>
+<text transform="translate(184,517)" font-size="12" style="fill:rgb(188, 189, 34)">blast</text>
+<text transform="translate(436,375)" font-size="12" style="fill:rgb(188, 189, 34)">biden</text>
+<text transform="translate(315,388) rotate(-90)" font-size="12" style="fill:rgb(148, 103, 189)">latest</text>
+<text transform="translate(765,457)" font-size="12" style="fill:rgb(140, 86, 75)">batch</text>
+<text transform="translate(463,584)" font-size="12" style="fill:rgb(31, 119, 180)">classified</text>
+<text transform="translate(202,600)" font-size="12" style="fill:rgb(44, 160, 44)">information</text>
+<text transform="translate(296,228)" font-size="12" style="fill:rgb(227, 119, 194)">fbi</text>
+<text transform="translate(649,276)" font-size="12" style="fill:rgb(214, 39, 40)">raid</text>
+<text transform="translate(500,541) rotate(-90)" font-size="12" style="fill:rgb(31, 119, 180)">happens</text>
+<text transform="translate(110,152)" font-size="12" style="fill:rgb(255, 127, 14)">favorite</text>
+<text transform="translate(443,619)" font-size="12" style="fill:rgb(214, 39, 40)">last</text>
+<text transform="translate(772,391)" font-size="12" style="fill:rgb(214, 39, 40)">friend</text>
+<text transform="translate(789,144)" font-size="12" style="fill:rgb(31, 119, 180)">away</text>
+<text transform="translate(350,378)" font-size="12" style="fill:rgb(227, 119, 194)">wanted</text>
+<text transform="translate(207,582)" font-size="12" style="fill:rgb(255, 127, 14)">drive</text>
+<text transform="translate(301,674)" font-size="12" style="fill:rgb(23, 190, 207)">seeing</text>
+<text transform="translate(618,160)" font-size="12" style="fill:rgb(255, 127, 14)">ph</text>
+<text transform="translate(218,228)" font-size="12" style="fill:rgb(255, 127, 14)">come</text>
+<text transform="translate(530,100)" font-size="12" style="fill:rgb(255, 127, 14)">link</text>
+<text transform="translate(253,441)" font-size="12" style="fill:rgb(44, 160, 44)">dms</text>
+<text transform="translate(655,654)" font-size="12" style="fill:rgb(148, 103, 189)">trying</text>
+<text transform="translate(684,8)" font-size="12" style="fill:rgb(227, 119, 194)">women</text>
+<text transform="translate(232,524)" font-size="12" style="fill:rgb(188, 189, 34)">bit</text>
+<text transform="translate(160,410)" font-size="12" style="fill:rgb(44, 160, 44)">ton</text>
+<text transform="translate(771,43)" font-size="12" style="fill:rgb(127, 127, 127)">gonna</text>
+<text transform="translate(595,703)" font-size="12" style="fill:rgb(140, 86, 75)">guy</text>
+<text transform="translate(133,772)" font-size="12" style="fill:rgb(188, 189, 34)">within</text>
+<text transform="translate(762,63)" font-size="12" style="fill:rgb(188, 189, 34)">content</text>
+<text transform="translate(705,592)" font-size="12" style="fill:rgb(148, 103, 189)">saturday</text>
+<text transform="translate(672,32)" font-size="12" style="fill:rgb(188, 189, 34)">know</text>
+<text transform="translate(365,293)" font-size="12" style="fill:rgb(214, 39, 40)">personally</text>
+<text transform="translate(550,726)" font-size="12" style="fill:rgb(140, 86, 75)">ethan</text>
+<text transform="translate(510,298) rotate(-90)" font-size="12" style="fill:rgb(31, 119, 180)">feigned</text>
+<text transform="translate(651,470)" font-size="12" style="fill:rgb(214, 39, 40)">candy</text>
+<text transform="translate(709,613)" font-size="12" style="fill:rgb(140, 86, 75)">job</text>
+<text transform="translate(866,245)" font-size="12" style="fill:rgb(23, 190, 207)">team</text>
+<text transform="translate(644,392)" font-size="12" style="fill:rgb(255, 127, 14)">pinksale</text>
+<text transform="translate(176,503)" font-size="12" style="fill:rgb(227, 119, 194)">launch</text>
+<text transform="translate(556,392)" font-size="12" style="fill:rgb(31, 119, 180)">make</text>
+<text transform="translate(517,155)" font-size="12" style="fill:rgb(188, 189, 34)">song</text>
+<text transform="translate(434,356) rotate(-90)" font-size="12" style="fill:rgb(255, 127, 14)">personal</text>
+<text transform="translate(891,112) rotate(-90)" font-size="12" style="fill:rgb(31, 119, 180)">kee</text>
+<text transform="translate(625,70)" font-size="12" style="fill:rgb(255, 127, 14)">crestwood</text>
+<text transform="translate(537,76)" font-size="12" style="fill:rgb(44, 160, 44)">easy</text>
+<text transform="translate(561,219) rotate(-90)" font-size="12" style="fill:rgb(227, 119, 194)">collab</text>
+<text transform="translate(575,453)" font-size="12" style="fill:rgb(31, 119, 180)">fan</text>
+<text transform="translate(416,260)" font-size="12" style="fill:rgb(31, 119, 180)">place</text>
+<text transform="translate(286,533)" font-size="12" style="fill:rgb(214, 39, 40)">said</text>
+<text transform="translate(642,542)" font-size="12" style="fill:rgb(23, 190, 207)">damn</text>
+<text transform="translate(582,63) rotate(-90)" font-size="12" style="fill:rgb(255, 127, 14)">fr</text>
+<text transform="translate(579,79)" font-size="12" style="fill:rgb(188, 189, 34)">independent</text>
+<text transform="translate(485,694)" font-size="12" style="fill:rgb(23, 190, 207)">left</text>
+<text transform="translate(359,689)" font-size="12" style="fill:rgb(214, 39, 40)">canadian</text>
+<text transform="translate(585,548)" font-size="12" style="fill:rgb(255, 127, 14)">market</text>
+<text transform="translate(511,333)" font-size="12" style="fill:rgb(214, 39, 40)">think</text>
+<text transform="translate(748,73)" font-size="12" style="fill:rgb(227, 119, 194)">white</text>
+<text transform="translate(57,744)" font-size="12" style="fill:rgb(44, 160, 44)">guitar</text>
+<text transform="translate(544,257)" font-size="12" style="fill:rgb(148, 103, 189)">solo</text>
+<text transform="translate(757,505)" font-size="12" style="fill:rgb(188, 189, 34)">sister</text>
+<text transform="translate(208,473)" font-size="12" style="fill:rgb(31, 119, 180)">wishes</text>
+<text transform="translate(694,285)" font-size="12" style="fill:rgb(188, 189, 34)">may</text>
+<text transform="translate(313,443) rotate(-90)" font-size="12" style="fill:rgb(214, 39, 40)">broke</text>
+<text transform="translate(697,50)" font-size="12" style="fill:rgb(23, 190, 207)">summer</text>
+<text transform="translate(871,159)" font-size="12" style="fill:rgb(23, 190, 207)">enough</text>
+<text transform="translate(195,536)" font-size="12" style="fill:rgb(255, 127, 14)">see</text>
+<text transform="translate(314,459)" font-size="12" style="fill:rgb(148, 103, 189)">western</text>
+<text transform="translate(375,364) rotate(-90)" font-size="12" style="fill:rgb(188, 189, 34)">maranatha</text>
+<text transform="translate(831,92)" font-size="12" style="fill:rgb(188, 189, 34)">academy</text>
+<text transform="translate(650,681)" font-size="12" style="fill:rgb(23, 190, 207)">add</text>
+<text transform="translate(78,235) rotate(-90)" font-size="12" style="fill:rgb(227, 119, 194)">driven</text>
+<text transform="translate(224,561)" font-size="12" style="fill:rgb(214, 39, 40)">even</text>
+<text transform="translate(352,800)" font-size="12" style="fill:rgb(214, 39, 40)">hard</text>
+<text transform="translate(646,585)" font-size="12" style="fill:rgb(23, 190, 207)">made</text>
 </svg>

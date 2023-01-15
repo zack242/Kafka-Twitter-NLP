@@ -30,12 +30,19 @@ def topic_identification(tweets, N, group_number):
     top_features = top_features[:N]
 
     # Print the top features for the group
-
-    print(f"Group {group_number}:")
     df = pd.DataFrame(top_features)
-    plot = df.plot(kind="barh", x=0, y=1)
+    plot = df.plot(
+        kind="barh",
+        y=1,
+        legend=False,
+        figsize=(10, 7),
+        title="Top " + str(N) + " features",
+    )
+
     fig = plot.get_figure()
-    fig.savefig("./python/tmp/class" + str(group_number) + ".png")
+    fig.savefig(
+        "./python/tmp/class" + str(group_number) + ".svg", format="svg", dpi=1200
+    )
 
 
 # This function compute the TF-IDF of each class after receiving the batch data in order to infer the topics
@@ -62,7 +69,7 @@ def topics_processing(N_classes, N):
         group = int(message.topic[-1])
         tweet_clean = tweet_preprocessing(tweet)
         list_of_groups["list_" + str(group)].append(tweet_clean)
-        if msg_no == 100:
+        if msg_no == 50:
             break
 
     for i, list in enumerate(list_of_groups):  # attention

@@ -67,6 +67,7 @@
               <span id="select-class" class="home-text20"></span>
             </div>
             <div class="home-container8">
+              <div class="home-conainer8" id="hbar"></div>
               <ul id="fil-tweets-class"class="home-ul1 list">
               </ul>
             </div>
@@ -99,10 +100,21 @@
          fetch("/image")
          .then(response => response.text())
          .then(data => {
-           document.getElementById('pic').innerHTML = data;})
+          document.getElementById('pic').innerHTML = data;
+          $("#pic").fadeIn();})
        .catch(error => {
        console.error(error);});
        }
+       function loadhbar() {
+        fetch("/hbar")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('hbar').innerHTML = data;
+          $("#hbar").fadeIn();
+        })
+        .catch(error => {
+        console.error(error);});
+      }
      
        function showtweets(tweets) 
        {
@@ -140,7 +152,6 @@
        $('#keyword').on("keyup",function(e) {
         if (e.keyCode == 13) {
           key = $('#keyword').val()
-          alert("ok")
           fetch(`/keyword?key=${key}`, {
             method: 'GET'
           })
@@ -151,8 +162,9 @@
        
      
        socket.on('message', function(msg) {
-         if (msg=="go")
+         if (msg=="go") {
               loadImage()
+              loadhbar()}
          else {
              const obj = JSON.parse(msg);
              showtweets(obj.text) 
@@ -167,6 +179,7 @@
        $('#group').on('click', 'button', function(event) {
         var name = this.value
         $('#select-class').text("Class "+name)
+        loadhbar()
         if(name == -1){
              $('#fil-tweets-class').empty();
              arr_tweets_class = [];
