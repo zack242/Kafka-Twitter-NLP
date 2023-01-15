@@ -1,5 +1,5 @@
 # Real-time Twitter Stream Visualization and classification
-<img src="./python/tmp/wordcloud.svg">
+<img src="./python/tmp/wordcloud.svg" weight="500" hight="500">
 
 This project is a real-time Twitter stream visualization that uses the following technologies:
 - Node.js
