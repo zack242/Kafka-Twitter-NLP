@@ -114,7 +114,8 @@ fs.watch(directory, (eventType, filename) => {
     io.emit("message", "go");
   }
 });
-updaterule("")
+
+//updaterule("")
 function updaterule(argument) {
   exec(`python3 python/twitter-api.py ${argument}`, (error, stdout, stderr) => {
     if (error) {

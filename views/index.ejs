@@ -55,13 +55,6 @@
           </div>
           <div class="home-container6">
             <div id="group" class="home-container7">
-              <button value="-1" class="home-button3 button">
-                <span>
-                  <span>Reset</span>
-                  <br />
-                  <br />
-                </span>
-              </button>
               <span class="home-text19">Live counter</span>
               <span id="tweet-count" class="home-text20">00000</span>
               <span id="select-class" class="home-text20"></span>
@@ -82,12 +75,7 @@
   <script>
      $(function () {
      
-       var arr_tweets = [];
-       var arr_tweets_class = [];
-       var socket = io();
-       loadImage()
-       addclass()
-     
+       // Get the number of the tweets every 10s      
        setInterval(function() {
          fetch('/nbrTweets')
            .then(response => response.json())
@@ -96,6 +84,7 @@
            });
        }, 1000);
      
+       // load the image when we get the event
        function loadImage() {
          fetch("/image")
          .then(response => response.text())
@@ -105,6 +94,8 @@
        .catch(error => {
        console.error(error);});
        }
+
+      // load the graphe when we get the event
        function loadhbar() {
         fetch("/hbar")
         .then(response => response.text())
@@ -116,7 +107,8 @@
         console.error(error);});
       }
      
-       function showtweets(tweets) 
+      //Show the tweets comming from twitter API
+      function showtweets(tweets) 
        {
          arr_tweets.push(tweets)
          if(arr_tweets.length > 50)
@@ -128,6 +120,7 @@
          });
        }
 
+      //Show the tweets comming from the classifier
        function showtweetsonclass(tweets) 
        {
         arr_tweets_class.push(tweets)
@@ -139,16 +132,18 @@
              $("#fil-tweets-class").prepend('<li class="list-item tweet"><span>'+tweet+'</span></li>');
          });
        }
-
-       function addclass()
-       {
+       // Create a number of button followinf the number of classes
+       function addclass() {
           for(i = 0; i < 5 ; i++){
           t = "<button value='"+i+"' class='home-button2 button'><span><span>Class "+i+"</span><br /><br /></span></button>"
           $("#group").prepend(t);
-        }
-
-       }
+        } }
      
+      //////////////////////////////////////////////////:
+      //////////////////////////////////////////////////:
+      //////////////////////////////////////////////////:
+
+      // When we click on a button we send the keyword to the server
        $('#keyword').on("keyup",function(e) {
         if (e.keyCode == 13) {
           key = $('#keyword').val()
@@ -159,8 +154,14 @@
           .then(response => console.log('Success:', response))
           .catch(error => console.error('Error:', error));}
       });
+
+      var arr_tweets = [];
+      var arr_tweets_class = [];
+      var socket = io();
+      loadImage()
+      addclass()
        
-     
+      // When we get the event we load the image
        socket.on('message', function(msg) {
          if (msg=="go") {
               loadImage()
@@ -171,25 +172,30 @@
          }
        });
 
+      // When we get the event we load the image
        socket.on('message1', function(msg) {
         const obj = JSON.parse(msg);
         showtweetsonclass(obj)
       });
 
+      // When we click on a button we send the class to the server
        $('#group').on('click', 'button', function(event) {
-        var name = this.value
-        $('#select-class').text("Class "+name)
-        loadhbar()
-        if(name == -1){
+          var name = this.value
+          $('#select-class').text("Class "+name)
+        if(name == -1) {
              $('#fil-tweets-class').empty();
              arr_tweets_class = [];
         }
-        else{ 
+        else{ loadhbar()
         fetch(`/class?key=${name}`, {
           method: 'GET'
         })
         .then(res => res.json())
-        .then(response => console.log('Success:', response))
+        .then(response => {
+          loadhbar()
+          $('#fil-tweets-class').empty();
+          arr_tweets_class = [];
+        })
         .catch(error => console.error('Error:', error)) }
       });
      
