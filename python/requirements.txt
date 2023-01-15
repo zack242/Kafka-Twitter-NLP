@@ -10,7 +10,6 @@ torch
 sklearn
 trasnformers
 river
-json
 re
 pandas
 gensim
