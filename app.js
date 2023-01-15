@@ -115,7 +115,7 @@ fs.watch(directory, (eventType, filename) => {
   }
 });
 
-//updaterule("")
+updaterule("")
 function updaterule(argument) {
   exec(`python3 python/twitter-api.py ${argument}`, (error, stdout, stderr) => {
     if (error) {
