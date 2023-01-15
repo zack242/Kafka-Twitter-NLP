@@ -33,7 +33,7 @@ You need to have the following installed on your machine:
 2. Feature extraction ( preprocessing, embedding)
 3. Topic classification using online KNN available on the river api
 4. Summarizing the class using the TF-IDF model available on the scikit-learn api
-5. Topic modelling using the Minibatch kmeans available on the scikit-learn api 
+5. Topic modelling using the Minibatch kmeans available on the scikit-learn api (Extension)
 
 ### Installing
 
