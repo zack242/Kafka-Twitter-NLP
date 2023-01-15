@@ -145,8 +145,8 @@ def batch_data(max_sample, wait_after=10):
 
         if y != -1:  # the labeling was successful
             print("Learning...")
-            model.learn_one(tweet_clean, y)
             y_pred = model.predict_one(tweet_clean)
+            model.learn_one(tweet_clean, y)
             acc.update(y_true=y, y_pred=y_pred)
 
             print("ACCURACY =", acc)
