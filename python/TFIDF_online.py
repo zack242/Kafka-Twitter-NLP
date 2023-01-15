@@ -33,6 +33,7 @@ def topic_identification(tweets, N, group_number):
     df = pd.DataFrame(top_features)
     plot = df.plot(
         kind="barh",
+        x=0,
         y=1,
         legend=False,
         figsize=(10, 7),

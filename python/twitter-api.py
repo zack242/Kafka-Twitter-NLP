@@ -6,7 +6,7 @@ import time
 from dotenv import load_dotenv
 
 load_dotenv()
-bear_token = os.getenv("API_KEY_1")
+bear_token = os.getenv("API_KEY_3")
 producer = KafkaProducer(bootstrap_servers="localhost:9092")
 
 
@@ -21,7 +21,7 @@ class MyStream(tweepy.StreamingClient):
         producer.send(
             "rawTwitter", json.dumps(dict(tweet), default=str).encode("utf-8")
         )
-        time.sleep(0.5)
+        # time.sleep(0)
         return
 
     def reset_rules(self):
