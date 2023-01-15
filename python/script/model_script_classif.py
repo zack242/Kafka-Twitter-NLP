@@ -154,7 +154,6 @@ def batch_data(max_sample, wait_after=10):
             row += 1
 
             # Send the tweet in the topic of its class
-            # No sending tweets during debugging, comment these lines if you debug!
             print("Trying to send tweet...")
             producer.send(
                 "tweetsClass_____" + str(y_pred),
@@ -182,5 +181,6 @@ model = Pipeline(
     ("TokenizerVectorizer", BagOfWords(lowercase=True)),
     ("Kmeans", KNNClassifier(n_neighbors=100)),
 )
+# You can use BertEmbeddings() as a better embedding here
 
 batch_data(50000, 10)
