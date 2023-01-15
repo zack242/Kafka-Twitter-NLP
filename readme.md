@@ -39,9 +39,11 @@ git clone https://github.com/zack242/Kafka-Twitter-NLP.git
 
 4. Make sure Kafka is running on your local machine
 
-5. Start the Node.js server
+5. Setup your api key in .env
 
-6. Visit [http://localhost:3000](http://localhost:3000) to view the visualization in your browser.
+6. Start the Node.js server
+
+7. Visit [http://localhost:3000](http://localhost:3000) to view the visualization in your browser.
 
 ## Usage
 
