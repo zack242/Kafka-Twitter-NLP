@@ -48,7 +48,7 @@ git clone https://github.com/zack242/Kafka-Twitter-NLP.git
 1. Connect to the server by visiting [http://localhost:3000](http://localhost:3000) in your browser.
 
 <p align="center">
-  <img height="300px" width="300px" src="./python/tmp/webpage.png">
+  <img height="800px" width="300px" src="./python/tmp/webpage.png">
 </p>
 
 ## Built With
