@@ -54,7 +54,7 @@ def topics_processing(N_classes, N):
     no_groups = N_classes
 
     # Kafka consumer setup
-    #consumer_topics = KafkaConsumer(bootstrap_servers=['localhost:9092'], auto_offset_reset='earliest') #,group_id=None
+    #consumer_topics = KafkaConsumer(bootstrap_servers=['localhost:9092'], auto_offset_reset='earliest') 
     # do this if its not a 'running topic'
     consumer_topics = KafkaConsumer()
 
@@ -77,7 +77,7 @@ def topics_processing(N_classes, N):
         if msg_no == 500:
             break
 
-    for i, list in enumerate(list_of_groups): #attention
+    for i, list in enumerate(list_of_groups):
         tweets = list_of_groups[list]
         print("Starting specific topic identification/ classification.")
         if len(tweets) != 0:
