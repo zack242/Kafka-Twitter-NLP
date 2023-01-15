@@ -58,7 +58,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 ## Authors
 
 * **Zakaria Tozy* - *ZT* - [Your Github](https://github.com/zack242)
-* **Karine Zafy* - *ZY* - [Your Github](https://github.com/zack242)
+* **Karine Zafy* - *ZY* - [Your Github](https://github.com/pailleaunez)
 * **Marius* - *ZY* - [Your Github](https://github.com/zack242)
 
 ## License
