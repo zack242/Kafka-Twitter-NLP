@@ -1,6 +1,7 @@
 # Real-time Twitter Stream Visualization and classification
-<img src="./python/tmp/wordcloud.svg">
-
+<center>
+<img src="./python/tmp/logo.png">
+</center>
 This project is a real-time Twitter stream visualization that uses the following technologies:
 - Node.js
 - Express
@@ -8,7 +9,7 @@ This project is a real-time Twitter stream visualization that uses the following
 - Socket.IO
 - kafka-node
 - Python
-
+<img src="./python/tmp/webpage.png">
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
