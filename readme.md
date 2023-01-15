@@ -1,6 +1,6 @@
 # Real-time Twitter Stream Visualization and classification
 <center>
-<img src="./python/tmp/logo.png">
+<img height="300px" width="300px" src="./python/tmp/logo.png">
 </center>
 This project is a real-time Twitter stream visualization that uses the following technologies:
 - Node.js
