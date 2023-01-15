@@ -37,10 +37,10 @@ def topic_identification(tweets, N, group_number):
         y=1,
         legend=False,
         figsize=(10, 7),
-        title="Top " + str(N) + " features",
+        title="Top " + str(N) + " features for the class " + str(group_number),
     )
-
     fig = plot.get_figure()
+    fig.patch.set_facecolor("none")
     fig.savefig(
         "./python/tmp/class" + str(group_number) + ".svg", format="svg", dpi=1200
     )
@@ -70,7 +70,7 @@ def topics_processing(N_classes, N):
         group = int(message.topic[-1])
         tweet_clean = tweet_preprocessing(tweet)
         list_of_groups["list_" + str(group)].append(tweet_clean)
-        if msg_no == 50:
+        if msg_no == 200:
             break
 
     for i, list in enumerate(list_of_groups):  # attention
