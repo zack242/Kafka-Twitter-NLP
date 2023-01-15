@@ -65,12 +65,6 @@ git clone https://github.com/zack242/Kafka-Twitter-NLP.git
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Authors
-
-* **Zakaria Tozy* - *ZT* - [Your Github](https://github.com/zack242)
-* **Karine Zafy* - *ZY* - [Your Github](https://github.com/pailleaunez)
-* **Marius* - *ZY* - [Your Github](https://github.com/zack242)
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
