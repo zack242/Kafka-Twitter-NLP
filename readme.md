@@ -1,7 +1,11 @@
 # Real-time Twitter Stream Visualization and classification
-<center>
-<img height="300px" width="300px" src="./python/tmp/logo.png">
-</center>
+
+<p align="center">
+  <img height="300px" width="300px" src="./python/tmp/logo.png">
+</p>
+
+
+
 This project is a real-time Twitter stream visualization that uses the following technologies:
 - Node.js
 - Express
@@ -9,7 +13,8 @@ This project is a real-time Twitter stream visualization that uses the following
 - Socket.IO
 - kafka-node
 - Python
-<img src="./python/tmp/webpage.png">
+
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -41,6 +46,10 @@ git clone https://github.com/zack242/Kafka-Twitter-NLP.git
 ## Usage
 
 1. Connect to the server by visiting [http://localhost:3000](http://localhost:3000) in your browser.
+
+<p align="center">
+  <img height="300px" width="300px" src="./python/tmp/webpage.png">
+</p>
 
 ## Built With
 
