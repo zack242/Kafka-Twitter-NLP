@@ -1,5 +1,5 @@
 # Real-time Twitter Stream Visualization and classification
-<img src="./python/tmp/wordcloud.svg" weight="200px" hight="200px">
+<img src="./python/tmp/wordcloud.svg">
 
 This project is a real-time Twitter stream visualization that uses the following technologies:
 - Node.js
@@ -29,7 +29,7 @@ git clone https://github.com/zack242/Kafka-Twitter-NLP.git
 
 2. Install the necessary Node.js packages
 
-3. Install the necessary Python packages
+3. Install the necessary Python packages (pip install -r requirements.txt)
 
 4. Make sure Kafka is running on your local machine
 
