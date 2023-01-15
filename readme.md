@@ -28,6 +28,13 @@ You need to have the following installed on your machine:
 - kafka-python
 - wordcloud
 
+## Modeling
+1. Usage of Kafka in order to stream tweets via the twitter api
+2. Feature extraction ( preprocessing, embedding)
+3. Topic classification using online KNN available on the river api
+4. Summarizing the class using the TF-IDF model available on the scikit-learn api
+5. Topic modelling using the Minibatch kmeans available on the scikit-learn api 
+
 ### Installing
 
 1. Clone the repository to your local machine
@@ -44,6 +51,8 @@ git clone https://github.com/zack242/Kafka-Twitter-NLP.git
 6. Start the Node.js server
 
 7. Visit [http://localhost:3000](http://localhost:3000) to view the visualization in your browser.
+
+
 
 ## Usage
 
