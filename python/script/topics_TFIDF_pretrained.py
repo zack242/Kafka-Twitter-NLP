@@ -54,10 +54,9 @@ def topics_processing(N_classes, N):
     no_groups = N_classes
 
     # Kafka consumer setup
-    consumer_topics = KafkaConsumer(bootstrap_servers=['localhost:9092'], auto_offset_reset='earliest') #,group_id=None
-    # do this if its not a 'running topic'
-
-
+    consumer_topics = KafkaConsumer(bootstrap_servers=['localhost:9092'], auto_offset_reset='earliest') 
+    # Do this to read all the tweets from the offset
+    
     consumer_topics.subscribe(["tweetsClass____" + str(i) for i in range(N_classes)])
     print("Subscribed!")
     list_of_groups = {}
@@ -69,14 +68,14 @@ def topics_processing(N_classes, N):
         print("Trying to read msg....")
         print("Topic msg =", message.topic)
         msg_no+=1
-        print(str(msg_no)+"/50000")
+        print(str(msg_no)+"/50000") # Training has been done on 50000 tweets
         tweet = json.loads(message.value.decode("utf-8"))
         group = int(message.topic[-1])
         list_of_groups["list_" + str(group)].append(tweet)
-        if msg_no == 50000:
+        if msg_no == 50000: # Training has been done on 50000 tweets
             break
 
-    for i, list in enumerate(list_of_groups): #attention
+    for i, list in enumerate(list_of_groups):
         tweets = list_of_groups[list]
         print("Starting specific topic identification/ classification.")
         if len(tweets) != 0:
