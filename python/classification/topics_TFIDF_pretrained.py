@@ -34,8 +34,7 @@ def topic_identification(tweets, N, group_number):
     # Get the top N features with the highest mean TF-IDF score
     mean_scores = tfidf_matrix.mean(axis=0)
     top_features = [
-        (feature_names[i], mean_scores[0, i])
-        for i in mean_scores.nonzero()[1].tolist()
+        (feature_names[i], mean_scores[0, i]) for i in mean_scores.nonzero()[1].tolist()
     ]
     top_features.sort(key=lambda x: x[1], reverse=True)
     top_features = top_features[:N]
@@ -54,11 +53,12 @@ def topics_processing(N_classes, N):
     no_groups = N_classes
 
     # Kafka consumer setup
-    consumer_topics = KafkaConsumer(bootstrap_servers=['localhost:9092'], auto_offset_reset='earliest') #,group_id=None
+    consumer_topics = KafkaConsumer(
+        bootstrap_servers=["localhost:9092"], auto_offset_reset="earliest"
+    )  # ,group_id=None
     # do this if its not a 'running topic'
 
-
-    consumer_topics.subscribe(["tweetsClass____" + str(i) for i in range(N_classes)])
+    consumer_topics.subscribe(["tweetsClass_____" + str(i) for i in range(N_classes)])
     print("Subscribed!")
     list_of_groups = {}
     for i in range(no_groups):
@@ -68,18 +68,19 @@ def topics_processing(N_classes, N):
     for message in consumer_topics:
         print("Trying to read msg....")
         print("Topic msg =", message.topic)
-        msg_no+=1
-        print(str(msg_no)+"/50000")
+        msg_no += 1
+        print(str(msg_no) + "/50000")
         tweet = json.loads(message.value.decode("utf-8"))
         group = int(message.topic[-1])
         list_of_groups["list_" + str(group)].append(tweet)
         if msg_no == 50000:
             break
 
-    for i, list in enumerate(list_of_groups): #attention
+    for i, list in enumerate(list_of_groups):  # attention
         tweets = list_of_groups[list]
         print("Starting specific topic identification/ classification.")
         if len(tweets) != 0:
             topic_identification(tweets, N, i)
 
-topics_processing(N_classes =5, N=10)
+
+topics_processing(N_classes=5, N=10)
